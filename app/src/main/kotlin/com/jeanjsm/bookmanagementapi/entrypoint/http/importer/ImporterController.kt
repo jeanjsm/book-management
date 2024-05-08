@@ -35,4 +35,9 @@ class ImporterController(
         return importerUseCase.execute(isbn, number)
     }
 
+    @GetMapping("/image/{isbn}")
+    fun getImageUrl(@PathVariable isbn: String): String {
+        return importerUseCase.getImageUrl(isbn)
+    }
+
 }
