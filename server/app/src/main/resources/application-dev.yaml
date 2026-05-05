@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/bookmanagementdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: bookmanagement
+    password: Bookmanagement123
+  web:
+    cors:
+      allowed-origins: "*"
+      allowed-methods: GET,POST,PUT,PATCH,DELETE,OPTIONS
+      allowed-headers: "*"
+      allow-credentials: true
+
+server:
+  port: 8080

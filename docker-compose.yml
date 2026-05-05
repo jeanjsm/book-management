@@ -1,25 +1,38 @@
-version: '3.3'
+version: '3.8'
+
 services:
   db:
     image: mysql:5.7
-    restart: always
+    container_name: book-management-db
     environment:
-      MYSQL_DATABASE: 'bookmanagementdb'
-      # So you don't have to use root, but you can if you like
-      MYSQL_USER: 'bookmanagement'
-      # You can use whatever password you like
-      MYSQL_PASSWORD: 'Bookmanagement123'
-      # Password for root access
-      MYSQL_ROOT_PASSWORD: 'Bookmanagement123'
+      MYSQL_DATABASE: bookmanagementdb
+      MYSQL_USER: bookmanagement
+      MYSQL_PASSWORD: Bookmanagement123
+      MYSQL_ROOT_PASSWORD: Bookmanagement123
     ports:
-      # <Port exposed> : < MySQL Port running inside container>
-      - '3306:3306'
-    expose:
-      # Opens port 3306 on the container
-      - '3306'
-      # Where our data will be persisted
+      - "3306:3306"
     volumes:
       - my-db:/var/lib/mysql
-# Names our volume
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: book-management-server
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: default
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/bookmanagementdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: bookmanagement
+      SPRING_DATASOURCE_PASSWORD: Bookmanagement123
+    ports:
+      - "8080:8080"
+
 volumes:
   my-db:

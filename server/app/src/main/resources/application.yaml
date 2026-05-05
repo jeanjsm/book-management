@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: book-management-api
+  datasource:
+    url: jdbc:mysql://localhost:3306/bookmanagementdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: bookmanagement
+    password: Bookmanagement123
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8080
