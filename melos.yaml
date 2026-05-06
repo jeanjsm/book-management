@@ -1,0 +1,25 @@
+name: jsma_workspace
+
+packages:
+  - apps/*
+  - packages/*
+
+scripts:
+  analyze:
+    exec: dart analyze .
+    description: Run static analysis for all packages and apps.
+
+  test:
+    exec: flutter test
+    description: Run tests for all packages and apps.
+
+  format:
+    exec: dart format --set-exit-if-changed .
+    description: Format all packages and apps.
+
+  build_runner:
+    exec: dart run build_runner build --delete-conflicting-outputs
+    description: Run build_runner for all packages and apps.
+    packageFilters:
+      dependsOn:
+        - build_runner
