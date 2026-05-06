@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: book-management-api
+  datasource:
+    url: { url }
+    username: { username }
+    password: { password }
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8080
