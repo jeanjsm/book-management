@@ -26,6 +26,9 @@ windows/flutter/generated_plugin_registrant.h
 windows/flutter/generated_plugins.cmake
 android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
 
+# Paperclip/QA heartbeat artifacts
+QA_HEARTBEAT_*.md
+
 # Spring/Gradle
 HELP.md
 .gradle
