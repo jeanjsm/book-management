@@ -10,6 +10,21 @@ flutter_export_environment.sh
 .flutter-plugins
 .flutter-plugins-dependencies
 .DS_Store
+.flutter_sdk/
+
+# Flutter generated / ephemeral
+ios/Flutter/ephemeral/
+ios/Flutter/Generated.xcconfig
+macos/Flutter/ephemeral/
+macos/Flutter/GeneratedPluginRegistrant.swift
+macos/Flutter/Flutter-Generated.xcconfig
+linux/flutter/generated_plugin_registrant.cc
+linux/flutter/generated_plugin_registrant.h
+linux/flutter/generated_plugins.cmake
+windows/flutter/generated_plugin_registrant.cc
+windows/flutter/generated_plugin_registrant.h
+windows/flutter/generated_plugins.cmake
+android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
 
 # Spring/Gradle
 HELP.md
